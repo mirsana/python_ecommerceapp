@@ -48,7 +48,7 @@ MOJO Cart
             {% for cart_item in cart_items %}
             <tr>
                 <td>
-                    <a href="cart_item.product.get_absolute_url"><img src="{{cart_item.product.image.url}}" class="float-left-rounded custom_image" style="width:100px; height:100px;"></a>
+                    <a href=" "><img src="{{cart_item.product.image.url}}" class="float-left-rounded custom_image" style="width:100px; height:100px;"></a>
 
                 </td>
                 <td class="text-center">
@@ -105,6 +105,8 @@ MOJO Cart
         </table>
         <div>
             <a href="{% url 'ecommerceapp:allProdCat' %}" class="btn btn-secondary btn-block my_custom_button">Continue Shopping</a>
+
+            <a href="{% url 'ecommerceapp:allProdCat' %}" class="btn btn-danger btn-block my_custom_button">Make Payment</a>
         </div>
 
 

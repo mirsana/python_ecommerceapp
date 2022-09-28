@@ -33,11 +33,14 @@
         </li>
         {% endif %}
 
-        <form class="d-flex" action="{% url 'search:SearchResult' %}" method="get">
+
+        <form style="margin-left:400px" class="d-flex" action="{% url 'search:SearchResult' %}" method="get" style="align-item:right;">
           {% csrf_token %}
           <input class="form-control me-2" type="search" placeholder="Search" name="q" aria-label="Search">
           <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
         </form>
+
+
       </ul>
 
     </div>
