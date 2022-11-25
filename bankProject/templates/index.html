@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+Bank of Peaople
+{% endblock %}
+
+{% block title %}
+BOP
+{% endblock%}
+
+{% block content %}
+
+<div class="my_image my_image_padding">
+    <img src="{% static 'img/banner.png' %}" alt="our products" style="width:100%">
+</div>
+
+<div class="conatiner">
+    <div class="row mx_auto">
+        <div class="my_bottom_margin col-9 col-sm-12 col-md-9 col-lg-4">
+            <div class="card" style="min-width:18rem;">
+                <div class="card-header">
+                   <h4> Services - Personal Banking</h4>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-secondary">Domestic Treasury. More Information.</li>
+                    <li class="list-group-item text-secondary">Broking Services. More Information.</li>
+                    <li class="list-group-item text-secondary">Revised Service Charges. More Information.</li>
+                    <li class="list-group-item text-secondary">ATM Services. More Information.</li>
+                    <li class="list-group-item text-secondary">Internet Banking. More Information.</li>
+                    <li class="list-group-item text-secondary">Revised Service Charges. More Information.</li>
+                    <li class="list-group-item text-secondary">ATM Services. More Information.</li>
+                    <li class="list-group-item text-secondary">Internet Banking. More Information.</li>
+
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="my_bottom_margin col-9 col-sm-12 col-md-9 col-lg-8">
+
+            <div class="card" style="min-width:18rem;">
+                <div class="card-body">
+                    <h3 class="card-title">Technology</h3>
+                    <h6 class="card-subtitle mb-2 text-muted">The Leading Digital Bank</h6>
+                    <p class="text-secondary">Today, we have already garnered major market share across multiple digital channels. Our flagship all-emcompassing digital platform, YONO, is. testimony to our prowess in delivering cutting-edge digital services to millions of retail customers. They are increasingly choosing to bank with us online, and YONO is seamlessly connecting us with them. We are pleased to announce that by 31st March 2020, Yono set a new record with ~46+ million downloads and ~21+ million registered users. Yono is an integrated proposition serving banking and beyond needs of the customer - with innovative banking offerings like YONO Cash, 40+ products across insurance and investments and lifestyle and shopping options from 80+ merchant partners. To encourage wider adoption, we have also launched a mobile banking app for our retail customers, called ‘YONO Lite’. To cater to our diverse customer base, the app is available in eight regional languages besides English. In addition to YONO, we have also set up ‘SBI Anywhere Corporate’, which is another banking app designed for delivering online transactions for proprietorship firms.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

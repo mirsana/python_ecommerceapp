@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+{% block content %}
+
+<div class="col d-flex justify-content-center">
+
+  <div class="card text-center"  style="width:50rem;">
+  <div class="card-header">
+    Application Form
+  </div>
+
+    <div class="card-body">
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" name="name" placeholder="Full name">
+    </div>
+    <div class="col">
+      <input type="date" class="form-control" name="dob" placeholder="Date of Birth">
+    </div>
+  </div>
+
+       <div class="row">
+    <div class="col">
+      <input type="number" class="form-control" name="age" placeholder="Age">
+    </div>
+     <div class="col">
+      <select id="inputState" class="form-control" name="gender" placeholder="Gender">
+        <option selected>Gender</option>
+        <option>Female</option>
+          <option>Male</option>
+      </select> </div>
+       </div>
+
+       <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" name="phno" placeholder="Phone Number">
+    </div>
+      <div class="col">
+      <input type="email" class="form-control" name="mail" placeholder="Email">
+    </div>
+       </div>
+
+       <div class="row">
+      <div class="col">
+      <input type="text" class="form-control" name="address" placeholder="Address">
+    </div>
+       </div>
+
+<!--        <div class="row">-->
+<!--        <div class="col">-->
+<!--      <select class="form-control" name="dist">-->
+<!--          <option selected>-&#45;&#45;</option>-->
+<!--          {% for dist in dist %}-->
+<!--        <option>{{ dist.name }}</option>-->
+<!--          {% endfor %}-->
+<!--      </select>-->
+<!--        </div>-->
+<!--            <div class="col">-->
+<!--      <select class="form-control" name="branch">-->
+<!--          <option selected>-&#45;&#45;</option>-->
+<!--          {% for branch in branch %}-->
+<!--        <option>{{ branch.name }}</option>-->
+<!--          {% endfor %}-->
+<!--      </select>-->
+<!--        </div>-->
+<!--            </div>-->
+
+         <div class="row">
+        <div class="col">
+      <select class="form-control" name="acType">
+        <option selected>Account Type</option>
+        <option>Savings Account</option>
+          <option>Current Account</option>
+          <option>Fixed Account</option>
+      </select>
+        </div>
+            </div>
+
+        <div class="row">
+            <div class="form-group row">
+                <div class="col-sm-2">Services Provided</div>
+                    <div class="col-sm-5">
+                        <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="crCard">
+                        <label class="form-check-label" >
+                        Credit Card
+                        </label>
+                        </div>
+
+                        <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="dbCard">
+                        <label class="form-check-label" >
+                        Debit Card
+                        </label>
+                        </div>
+
+                        <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="cqBook">
+                        <label class="form-check-label" >
+                        Cheque Book
+                        </label>
+                        </div>
+                     </div>
+
+            </div>
+        </div>
+
+        <form method="get" enctype="multipart/form-data" id="DataForm" data-branch-url="{% url 'ajax_load_branch' %}">
+            {% csrf_token %}
+            <table>
+            {{ form.as_table }}
+            </table>
+        </form>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+    $("#id_dist").change(function () {
+        const url = $("#DataForm").attr("data-branch-url");  // get the url of the `load_cities` view
+        const distId = $(this).val();  // get the selected country ID from the HTML input
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+            data: {
+                'dist_id': distId       // add the country id to the GET parameters
+            },
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+                $("#id_branch").html(data);  // replace the contents of the city input with the data that came from the server
+
+            }
+        });
+
+    });
+        </script>
+<input type="submit" name="submit">
+</form>
+
+
+  </div>
+     </div>
+
+
+{% if messages %}
+    <div class="card-footer text-muted" style="background-color: #FF0000;">
+      {% for msg in messages %}
+      {{msg}}
+      {% endfor %}
+    </div>
+    {% endif %}
+
+
+
+  </div>
+
+</div>
+
+{% endblock %}

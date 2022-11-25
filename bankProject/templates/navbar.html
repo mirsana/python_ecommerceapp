@@ -1,0 +1,25 @@
+<nav class="navbar navbar-light nav nav-pills nav-fill" style="background-color: #e3f2fd;">
+    <a class="nav-item nav-link" href="{% url 'home' %}">HOME</a>
+
+    {% if user.is_authenticated %}
+    <a class="nav-item nav-link" href="{% url 'logout' %}">LOGOUT</a>
+    <h5 class="nav-item nav-link">Welcome ! {{user.username}}</h5>
+     {% else %}
+
+    <a class="nav-item nav-link" href="{% url 'login' %}">LOGIN</a>
+    <a class="nav-item nav-link" href="{% url 'register' %}">REGISTER</a>
+    {% endif %}
+
+    <div class="dropdown show" style="background-color: #e3f2fd;">
+        <a class="btn btn-secondary dropdown-toggle" href="{% url 'home' %}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        BRANCHES
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        {% for br in links %}
+            <a class="dropdown-item" href="{{br.link}}">{{br.name}}</a>
+        {% endfor %}
+        </div>
+    </div>
+
+</nav>
